@@ -25,9 +25,9 @@ class Articles:
 
         return previous_articles
 
-    def get_currency(self, value):
+    def currency_present(self, value):
         temp = regex.findall(r'\p{Sc}', value)
-        return temp
+        return temp != []
 
     def get_new_articles(self):
         driver = self.driver
@@ -43,8 +43,8 @@ class Articles:
                     break
                 title = article.find_element_by_class_name("post-block__title__link")
                 title_text = title.text
-                currency = self.get_currency(title_text)
-                if currency != []:
+
+                if self.currency_present(title_text) :
                     if title_text not in self.previous_articles:
                         date_of_publishing = article.find_element_by_tag_name("time").text.replace("•", ", ")
                         article_full_url = article.find_element_by_tag_name("a").get_property("href")
