@@ -8,7 +8,11 @@
 
 ## Usage:
 
-Execute scrape_techcrunch.py
+1. Open your command prompt and cd to your cloned directory.
+2. Type following command in your cmd : 
+    ``` python scraping_api.py ```
+3. Open your browser and type the following url : 
+    ```http://localhost:5000/```
 
 ## How it Works:
 
